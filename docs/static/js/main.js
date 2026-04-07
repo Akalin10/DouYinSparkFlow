@@ -80,7 +80,7 @@ const app = createApp({
 
     const environmentSecrets = computed(() => {
       return form.ACCOUNTS.reduce((acc, account, index) => {
-        acc[`COOKIES_${account.unique_id}`] = account.cookies;
+        acc[`COOKIES_${String(account.unique_id || "").toUpperCase()}`] = account.cookies;
         return acc;
       }, {});
     });
